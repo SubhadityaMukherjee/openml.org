@@ -68,7 +68,7 @@ def _send_mail(sender, receiver, message):
         server.sendmail(sender, receiver, message)
 
 
-def current_user() -> User:
+def current_user() -> User|None:
     if verify_jwt_in_request():
         jwt_identity = get_jwt_identity()
         with Session() as session:
